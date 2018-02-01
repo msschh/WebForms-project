@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="ProiectDaw.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/jquery-1.9.1.intellisense.js"></script>
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/ai.0.22.9-build00167.js"></script>
+    <script src="scripts/ai.0.22.9-build00167.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <nav class="navbar navbar-default">
+        <div>
+            <div>
+                <div class="navbar-header">
+                    <asp:HyperLink CssClass="navbar-brand" runat="server" NavigateUrl ="~/Default.aspx">Home</asp:HyperLink>
+                </div>
+                <div class="nav navbar-nav">
+                    <div class="navbar-brand dropdown">
+                        <p>Domenii</p>
+                        <div class="dropdown-content" id="dropDownMenuDiv" runat="server">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                    <asp:HyperLink CssClass="navbar-brand" ID="HyperLink2" runat="server" NavigateUrl ="~/addArticle.aspx">Add article</asp:HyperLink>
+                </div>
+            </div>
+            <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+            <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+            <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+            <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+            <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+            <div class="navbar-brand"></div>
+            <div>
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                        <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                        <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                        <div class="navbar-brand"></div><div class="navbar-brand"></div>
+                        <asp:HyperLink CssClass="navbar-brand" ID="Button1" runat="server" NavigateUrl="~/Login.aspx" Text="Login" />
+                        <asp:HyperLink CssClass="navbar-brand" ID="Button2" runat="server" NavigateUrl="~/Register.aspx" Text="Register" />
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <asp:Label runat="server" CssClass="navbar-brand" Text="Hello,"></asp:Label>
+                        <asp:LoginName CssClass="navbar-brand" ID="LoginName2" runat="server" />
+                        <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                        <asp:LoginStatus CssClass="navbar-brand" ID="LoginStatus1" runat="server" />
+                    </LoggedInTemplate>
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Admin">
+                            <ContentTemplate>
+                                <asp:Label runat="server" CssClass="navbar-brand" Text="Hello,"></asp:Label>
+                                <asp:LoginName CssClass="navbar-brand" ID="LoginName2" runat="server" />
+                                <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                                <asp:HyperLink CssClass="navbar-brand" ID="HyperLink1" runat="server" NavigateUrl="~/admin/roluriUtilizatori.aspx">Roluri utilizatori</asp:HyperLink>
+                                <asp:LoginStatus CssClass="navbar-brand" ID="LoginStatus2" runat="server" />
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="Editor">
+                            <ContentTemplate>
+                                <asp:Label runat="server" CssClass="navbar-brand" Text="Hello,"></asp:Label>
+                                <asp:LoginName CssClass="navbar-brand" ID="LoginName2" runat="server" />
+                                <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                                <asp:HyperLink CssClass="navbar-brand" ID="HyperLink3" runat="server" NavigateUrl="~/editor/addDomain.aspx">Adauga domeniu</asp:HyperLink>
+                                <asp:LoginStatus CssClass="navbar-brand" ID="LoginStatus3" runat="server" />
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="User">
+                            <ContentTemplate>
+                                <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                                <asp:Label runat="server" CssClass="navbar-brand" Text="Hello,"></asp:Label>
+                                <asp:LoginName CssClass="navbar-brand" ID="LoginName2" runat="server" />
+                                <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                                <div class="navbar-brand"></div><div class="navbar-brand"></div><div class="navbar-brand"></div>
+                                <asp:LoginStatus CssClass="navbar-brand" ID="LoginStatus4" runat="server" />
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+            </div>
+        </div></nav>    
+        <br />
+        <div style="margin-left:20%; margin-right:20%">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
